@@ -1,0 +1,230 @@
+#headerall {
+    background-color: black;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    color: white;
+}
+
+#logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    h2 {
+        color: var(--theme-clr);
+        padding: 0 5px;
+    }
+    h4{
+        position: relative;
+    }
+    h4::after{
+        display: none;
+        position: absolute;
+        content: "";
+        background-color: var(--theme-clr);
+        width: 100%;
+        height: 2px;
+        top: 100%;
+    }
+    h4:hover::after{
+        display: block;
+    }
+    a, a:visited{
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+.Navbar {
+    position: absolute;
+    justify-content: center;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.925);
+    width: 100%;
+    top: 100%;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+.Navlink {
+    padding: 10px 20px;
+    list-style: none;
+    li {
+        margin: 0 1em 1em 0;
+    }
+    a{
+        position: relative;
+    }
+    a, a:visited {
+        color:white;
+        text-decoration: none;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 190ms ease-in-out;
+    }
+    a:hover {
+        color: var(--theme-clr);
+    }
+}
+
+#navtoggle {
+    display: none;
+}
+
+#navtoggle:checked ~ nav {
+    transform: scale(1,1);
+}
+
+#navtoggle:checked ~ nav a {
+    opacity: 1;
+    pointer-events: fill;
+    transition: opacity 250ms ease-in-out 250ms;
+}
+#navtoggle:checked ~ #navtoggle-label span {
+    background-color: var(--theme-clr);
+    transition: background-color 200ms ease-in;
+}
+
+#navtoggle-label {
+    position: absolute;
+    left:  0;
+    top: 0;
+    margin-left: 1em;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 100vh;
+    
+    span, span::before, span::after {
+        display: block;
+        background-color: white;
+        transition: background-color 500ms ease-in 200ms;
+        height: 2px;
+        width: 1em;
+        border-radius: 100vh; 
+        content: '';        
+    }
+    span {
+        position: relative;
+    }
+    span::before, span::after {
+        position: absolute;
+    }
+    span::before {
+        top: 5px;
+    }
+    span::after {
+        bottom: 5px;
+    }
+}
+
+#order {
+    color: white;
+    display: none;
+    text-decoration: none;
+    &:hover{
+        color: var(--theme-clr);
+    }
+}
+
+#order2 {
+    position: absolute;
+    color: white;
+    top: 25%;
+    right: 0%;
+    margin-right: 5%;
+    text-decoration: none;
+    &:hover{
+        color: var(--theme-clr);
+    }
+}
+
+#facebook{
+    position: fixed;
+    color: #3b5998;
+    background-color: white;
+    border-radius: 100vh;
+    bottom: 2%;
+    left: 1%;
+    a {
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    #navtoggle-label {
+        display: none;
+    }
+    #headerall {
+        display: grid;
+        grid-template-columns: 1fr auto minmax(70%, 1fr) 1fr;
+        padding: 10px;
+        #logo {
+            grid-column: 2/3;
+            h2{
+                font-size: 2rem;
+            }
+        }
+        .Navbar {
+            grid-column: 3/4;
+        }
+    }
+
+    .Navbar {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .Navlink {
+        display: flex;
+        padding: 0;
+        margin: 0 10px; 
+        li {
+            display: flex;
+            padding: 0;
+            margin: 0 10px; 
+        }
+        a{
+            opacity: 1;
+            pointer-events: fill;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        a::after {
+            display: block;
+            position: absolute;
+            content: "";
+            background-color: var(--theme-clr);
+            width: 95%;
+            height: 2px;
+            top: 100%;
+            transform: scale(0,1);
+            transition: transform 1s ease-in-out;
+        }
+        a:hover::after {
+            display: block;
+            transform: scale(1,1);
+            transition: transform 300ms ease-in-out;
+        }
+    }
+
+    #order {
+        display: inline;
+    }
+    #order2{
+        display: none;
+    }
+
+    #facebook {
+        left: unset;
+        right: 1%;
+    }
+}

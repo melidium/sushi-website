@@ -1,0 +1,24 @@
+#loading-screen {
+    height: 100vh;
+    width: 100%;
+    background: black;
+    position: fixed;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-icon {
+    color: var(--theme-clr);
+    animation: loopRotate 1s infinite;
+
+    @keyframes loopRotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+}

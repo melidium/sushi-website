@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import './Footer.scss';
+@import './Header.scss';
+@import './Loading.scss';
+
+
+:root{
+    --theme-clr: rgb(255, 126, 79);
+}
+
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: white;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+}
+h1,h2,h3,h4,h5,h6,a, button{
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+}
+
+button {
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.h1stylesep {
+    display: inline;
+    background: linear-gradient(to right, rgb(255, 115, 0), rgb(255, 164, 80), var(--theme-clr));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.5rem;
+    padding-left: 5%;
+    @media screen and (min-width: 950px) { 
+        padding-left: 15%;
+        font-size: 3rem; 
+    }
+}
+.h1style2sep {
+    display: block;
+    color: var(--theme-clr);
+    font-size: 1.5rem;
+    text-align: center;
+    @media screen and (min-width: 950px) { 
+        text-align: center; 
+        font-size: 2rem;
+    }
+}
+
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.separatorspace {
+    display: block;
+    bottom: 200px;
+    width: 100%;
+    height: 15vh;
+}
+
+
+// HOME ---------------------------
+
+
+.pagelandinganimation {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: .5;
+        pointer-events: none;
+    }
+    100% {
+        opacity: 1;
+        pointer-events: fill;
+    }
+}
+@keyframes slideLeft {
+    0% { left: 0;}
+    100%{ left : 100%;}
+}
+
+.showcase {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    max-height: 100%;
+    width: auto;
+    background:rgba(0, 0, 0, 0.445);
+    .showcaseheader {
+        position: absolute;
+        color: white;
+        bottom: 15%;
+        left: 2%;
+        h2{
+            font-size: 8vw;
+        }
+        h4 {
+            font-size: 5vw;
+        }
+    }
+}
+.slidepic {
+    background: black;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    animation: fadeIn 1s ease-in;
+}
+
+
+#slidedots {
+    display: flex;
+    position: absolute;
+    margin: auto;
+    bottom: 5%;
+    width: 15%;
+    align-items: center;
+    justify-content: space-around;
+}
+.slidedot {
+    display: inline;
+    width: 10px;
+    height: 10px;
+    border-radius: 100vh;
+    cursor: pointer;
+    z-index: 20;
+    background: rgb(255, 255, 255);
+    transition: opacity 800ms ease;
+}
+
+.slidedot:hover, .slidedot:focus, .slidedot:active {
+    opacity: 1;
+}
+
+
+.contentsep {
+    padding-bottom: 5vh;
+    background: linear-gradient(to right, rgb(0, 0, 0), var(--theme-clr), rgb(0, 0, 0));
+    width: 100%;
+    display: block;
+    margin-bottom: 5%;
+}
+
+
+
+.chefchoice {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.dish {
+    position: relative;
+    color: rgb(255, 255, 255);
+    flex-basis: 50%;
+    height: 35vh;
+    img{
+        display: block;
+        object-fit:fill;
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.chefchoice-description {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    flex-basis: 50%;
+    position: relative;
+    margin-left: 1%;
+    width: 50%;
+    a,a:visited{
+        text-decoration: none;
+        color: inherit;
+    }
+    button {
+        font-size: 3vw;
+        border-radius: 100vh;
+        background-color: var(--theme-clr);
+        width: 150px;
+        max-width: 50%;
+        padding: 5%;
+        position: absolute;
+        bottom: 1%;
+        right: 2%;
+        border: transparent;
+        box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.315);
+        transition: box-shadow 500ms ease-in;
+    }
+    button:hover {
+        background-color: black;
+        color: rgb(252, 159, 126);
+        border: black;
+        box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.596);
+    }
+    button:focus {
+        box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.705);
+        animation: buttonclick 1s ease-in forwards;
+        @keyframes buttonclick {
+            0% {
+                background-color: rgb(145, 75, 37);
+                color: rgb(207, 207, 207);
+            }
+            100% {
+                background-color: var(--theme-clr);
+                color: black;
+            }
+        }
+    }
+    p{
+        font-size: 3vw;
+        padding: 1% 0 0 1%;;
+    }
+}
+
+
+
+#chefdish-title {
+    display: flex;
+    flex-direction: column;
+    font-size: 3vw;
+    padding: 1%0 0 1%;
+}
+
+.switchbutton{
+    border-radius: 100vh;
+    color: black;
+    background-color: transparent;
+    border: none;
+    margin: 0 1%;
+    cursor: pointer;
+}
+
+#map {
+    margin: auto;
+    width: 80%;
+    height: 200px;
+}
+
+#serviceParagraph {
+    font-size: .7rem;
+}
+
+@media screen and (min-width: 950px) {
+    #slidedots {
+        width: 5%;
+    }
+
+    .container {
+        width: 70%;
+    }
+
+    .showcase {
+        height: 94vh;
+        .showcaseheader {
+            position: absolute;
+            color: white;
+            bottom: 15%;
+            left: 6%;
+            h2{
+                font-size: 4rem;
+            }
+            h4 {
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+
+
+  
+    
+    .chefchoice {
+        width: 60%;
+        margin: 2% auto;
+        box-shadow: 5px 8px 20px 1px rgba(0, 0, 0, 0.144);
+    }
+
+    .dish {
+        height: 50vh;
+        img{
+            padding: 2%;
+        }
+    }
+    
+    .chefchoice-description {
+        button {
+            padding: 7%;
+            bottom: 5%;
+            right: 5%;
+            font-size: 1.5rem;
+        }
+        p {
+            font-size: 2vw;
+            line-height: 1.5rem;
+            padding: 4% 0 0 4%;
+        }
+    }
+    #chefdish-title {
+        font-size: 5vh;
+        padding: 1% 0 0 4%;
+    }
+    
+    #map {
+        height: 400px;
+    }
+
+    #serviceParagraph {
+        font-size: 1.1rem;
+    }
+}
+
+
+// Contact Page 
+
+
+#contactus-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin:auto;
+    justify-content: space-around;
+}
+
+
+#openhour{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10vh;
+    li{
+        padding: 5px 10px;
+    }
+    #date {
+        font-weight: 600;
+    }
+    #hours {
+        text-align: end;
+    }
+}
+
+#contactus-information {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    ul {
+        margin: 10px 0 20px 0;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    #contactus-container{
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+    }
+
+    
+    #openhour{
+        
+        ul{
+            padding-top: 20px;
+        }
+        li{
+            padding: 5px 20px;
+        }
+    }
+
+    #contactus-information {
+        width: 100%;
+    }
+}
+
+
+
+
+// Menu Page 
+
+
+#all-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
+    button {
+        font-size: 3rem;
+        text-align: center;
+        padding: 75% 0;
+    }
+}
+@media screen and (min-width: 800px) {
+    #all-menu {
+        width: 40%;
+        button {
+            padding: 80% 10%;
+        }
+    }
+}
+
+
+// Gallery 
+
+#galleryh1 {
+    display: block;
+    text-align: center;
+    padding: 0;
+    font-size: 3rem;
+}
+
+#gallerycontainer {
+    display:flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 90%;
+    justify-content: center;
+    img{
+        object-fit: cover;
+        width: 30%;
+        padding: 1%;
+    }
+    img:hover, img:active, img:focus{
+        padding: 0%;
+    }
+}
+
+
+
